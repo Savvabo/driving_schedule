@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "alya-uber-237613",
+  "private_key_id": "79775c035103283a1189c00cd09044660dcdde5e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC29pS8iXnXYiJ4\ne4Oh/FcSQP1xAY80T7vMOhbpYwJ3ln9m8lczisZMMYaw0tY/Cu9tU3GIm9CQoboA\nCT4P6cPWHgg4f4jpViskyP8ivNjWPapmXsEAShujw0F6X/Ga0HZ5DwIyaM57oa7J\nt/jCbd3hL0S4S/LBD2Eh0jMjRee0I5IxTsWqkpcFFNRPVfwzwmBqpezGCmaFXxfI\nzC1sY2CgBopInKYW6ZkiibCorZuwG+Zr1i4YwzZjfGhwwycLFkM+FEfMfHwy0/d3\nCqX0yi6Qy6gUpNWT+t3Ss7oi37yVNeQz8HjKrsUuP6+7Z55TW4VkuqaO7MYIeDnR\n+sf4HmD7AgMBAAECggEATi856QVgXSNQ8qZpXj/MX38JLpDJhsOpz0BliQ8nvz2/\nLJlTnTFowqeJVKeMKT19ifzV79gRvLR3nMtWS4uMBcQopCgPtBJ/9kS0Dj6f9JE+\nb2d/VyXUANuP8ADu6Ea70ciRmkQCNH+nhwjIUyGK5s8BsTW3QzvUuJSwCJs3Q9kU\nKwGxh4V6HfR8AOWEf5rIeRaoqHlsvtzw1FGfjM3SutU9SfyT326gVTxIbWItK6Tb\n3oTDpeVP3KwkcffSzTGcQUjkeUDyi6p6LL/ahKqOw8fR6lhuhfT5Ziey7gdpny9m\nrW9NKw3NVPvfhOTAKfgHgc0mvWA1pgCAorwQ25gFpQKBgQDmeRmJ9MZGbw7OCI5E\nwiHu3Fwb3jDKTrAkKsVkAzGDLLQoSDHHhB50HX7QjMbUBuuIcpJbn8r/g5fZtxTk\ndRgvcpyWv05Ck5Zdmx/oTrZtEn46ewxOYs4zmlyamcsrKN+/N9jzhn1TOYcvsF1C\nffK5NYTX9zCc3mfjBRNmbS0XdQKBgQDLOl+UMZPA0hMmxif0Yt2snOF++R3jKfUU\ngSQk/JrN2rnMkhTcynLqz4jCk8fu09Fo3J/wjxKyvsipmVnTg0EN6dngweG9NOJY\n5WHcMFgb1yz3Z5BIt/DwRFBwtxRhGRtfjr37oXgD4sQKbV5PSRehN+k5CkXhOzq3\nPIcvKQr4rwKBgQDeMA9T9VuVGYoPTSZC2Vk3Ws+dujYVQ4kCRQ2pHn8EM/u2/eqn\nqxJk5O6WBbHFRKqbD8FTfZiJfobNSHhmyxA25epaVjIPcxM6SMuY/RFX08VHgcra\nYtzh2MW/8dZxVGVohmGsXJLDwik263LtIFj4/sSEI/WEtdE3hnQugcA/5QKBgHx3\ncdZHTuDHSKd0sT/B1VZEdu7XD/Dy34EBXuuwMfdlwGmEBnb7Hsqk9HOHIuoonJaG\nmQYx+hezNR56J0OdnZgx4xj+ZY0F+KLNSdQbX7sdXBLiQMHotg3RKRr/ZeHaCKPL\nvpuAVwq6NarVNO+GKoy4u4QNwKKjLeDPl1PQ5UFNAoGAVRgy3p6zShxlB7UhGNuM\nhMzi/w59ofRVJTnHyc7r0InhWP4lKj9iveCWdSfjlcUJb+K3uWsHM3sB1YKiflBZ\nnqXsSheXNszXLplD99g8nI5sOaSuDGWbfPn3SQqKNk7AUQg4vxvA/aBLqbYRWHro\nIKiBNgoAs+mDVkD+V/ubbuI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "maria-535@alya-uber-237613.iam.gserviceaccount.com",
+  "client_id": "101810842613445592732",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/maria-535%40alya-uber-237613.iam.gserviceaccount.com"
+}

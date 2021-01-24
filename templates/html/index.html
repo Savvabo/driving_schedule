@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/index.css">
+
+    <link rel="stylesheet" href="../../static/css/4-5-2-bootstrap-css.css">
+        <link rel="stylesheet" href="../../static/css/index.css">
+
+    <link rel="stylesheet" href="../../static/css/1-9-0-bootstrap-datepicker.css">
+
+    <script src="../../static/js/jquery-3-2-1.js"></script>
+    <script src="../../static/js/2-29-1-moment-min.js"></script>
+    <script src="../../static/js/4-3-1-bootstrap.js"></script>
+    <script src="../../static/js/bootstrap-datepicker-min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datepicker( { startDate: "today", todayHighlight: true});
+        });
+    </script>
+
+
+    <title>Уроки вождения</title>
+</head>
+<body>
+<button class="close" title="Закрыть" onclick="document.getElementById('modal_rules').style.display='none';"
+        data-toggle="modal" data-target="#modal_rules"></button>
+<button class="close" title="Закрыть" onclick="document.getElementById('modal_rules_second').style.display='none';"
+        data-toggle="modal" data-target="#modal_rules_second"></button>
+<button class="close" title="Закрыть" onclick="document.getElementById('modal_appointment').style.display='none';"
+        data-toggle="modal" data-target="#modal_appointment"></button>
+<button class="close" title="Закрыть" onclick="document.getElementById('modal_price').style.display='none';"
+        data-toggle="modal" data-target="#modal_appointment"></button>
+<button class="close" title="Закрыть" onclick="document.getElementById('modal_about').style.display='none';"
+        data-toggle="modal" data-target="#modal_appointment"></button>
+<button class="close" title="Закрыть" onclick="document.getElementById('modal_farewell').style.display='none';"
+        data-toggle="modal" data-target="#modal_farewell"></button>
+<div class="main_buttons">
+        <div class="btn_column">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_appointment"
+        >Онлайн-запись
+        </button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_price">Цены
+        </button>
+    </div>
+    <div class="btn_column">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_rules_second">
+            Правила
+        </button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_about">
+            О себе
+        </button>
+    </div>
+
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal_rules" tabindex="-1" role="dialog" aria-labelledby="modal_rules_title"
+     aria-hidden="true" style="display: none">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_rules_title">Правила</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="FirstCloseButton"
+                        disabled>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> 1.	Минимальная длительность занятия: 2 часа. Можно больше, меньше – нет. <br>
+                    2.	Топливо на машине инструктора уже включено в стоимость. <br>
+                    3.	Можно бронировать сразу курс из нескольких занятий на удобное для Вас время. <br>
+                    4.	Место проведения занятий обсуждается индивидуально, Ваши пожелания учитываются. <br>
+                    5.	Бронирование подтверждается при оплате первого занятия полностью. <br>
+                    6.	Отмена возможна по уважительной причине не менее, чем за 24 часа до начала занятия.</p>
+                <div class="form-check">
+                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1"
+                           aria-label="С правилами онакомлен(а)"
+                           onchange="disableRuleButton()">
+                    <p style="display: inline-block; margin-left: .5rem;">С правилами онакомлен(а)</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="SecondCloseButton" class="btn btn-secondary" data-dismiss="modal" disabled>
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_rules_second" tabindex="-1" role="dialog" aria-labelledby="modal_rules_title"
+     aria-hidden="true" style="display: none">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_rules_second_title">Правила</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> 1.	Минимальная длительность занятия: 2 часа. Можно больше, меньше – нет. <br>
+                    2.	Топливо на машине инструктора уже включено в стоимость. <br>
+                    3.	Можно бронировать сразу курс из нескольких занятий на удобное для Вас время. <br>
+                    4.	Место проведения занятий обсуждается индивидуально, Ваши пожелания учитываются. <br>
+                    5.	Бронирование подтверждается при оплате первого занятия полностью. <br>
+                    6.	Отмена возможна по уважительной причине не менее, чем за 24 часа до начала занятия.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-dismiss="modal" >
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_about" tabindex="-1" role="dialog" aria-labelledby="modal_about_title"
+     aria-hidden="true" style="display: none">
+    <div class="modal-dialog modal-dialog-about modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_about_title">Обо мне</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4 mobile_col_4">
+                        <div class="avatar">
+                            <img src="../../static/img/avatar.jpg" alt="Моё фото">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <span class="name">Андрей К.</span>
+                        <span class="region">Киев</span>
+                        <ul class="b-tags__content">
+                            <li class="b-tags__item-holder">
+                                <span class="b-tags__item">Вождение (АКПП)</span>
+                            </li>
+                            <li class="b-tags__item-holder">
+                                <span class="b-tags__item">Вождение (МКПП)</span>
+                            </li>
+                            <li class="b-tags__item-holder">
+                                <span class="b-tags__item">ПДД (теория)</span>
+                            </li>
+                            <li class="b-tags__item-holder">
+                                <span class="b-tags__item">Экстремальное вождение</span>
+                            </li>
+                            <li class="b-tags__item-holder">
+                                <span class="b-tags__item">Вождение мотоцикла</span>
+                            </li>
+                            <li class="b-tags__item-holder">
+                                <span class="b-tags__item">Пилотирование</span>
+                            </li>
+                            <li class="b-tags__item-holder">
+                                <span class="b-tags__item">Другое обучение вождению</span>
+                            </li>
+                            <li class="b-tags__item-holder">
+                                <span class="b-tags__item">Помощь в дороге</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text_about">Очень люблю автомобили и все что с ними связано. Уже более 20 лет безаварийного стажа вождения легкового авто, и несколько лет мото стажа. Не курю, не пью, спокойный :) Хорошо разбираюсь в технической стороне авто. На текущий момент свой автомобиль BMW 3 (дизель).
+
+                    Помогу освоить навыки вождения в городе и за городом. Рассказываю лайфхаки, с которыми Вы будете себя более комфортно чувствовать за рулем. Обучаю вождению так, чтоб потом не страшно было встретить своего ученика в городе :)
+
+                    Всем добра!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal_appointment" tabindex="-1" role="dialog" aria-labelledby="modal_appointment_title"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_appointment_title">Онлайн-запись</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="carouselExampleIndicators" class="carousel" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                        <li data-slide-to="0"
+                            class="active slider_indicator"></li>
+                        <li data-slide-to="1" class="slider_indicator"></li>
+                        <li data-slide-to="2" class="slider_indicator"></li>
+                        <li data-slide-to="3" class="slider_indicator"></li>
+                    </ol>
+                        <div class="carousel-item active" id="price_slide" onclick="enable_price_button()">
+                            <div class="carousel-inner mb-3">
+                                <div class="card-deck mb-3 text-center" id="card_deck">
+                                    <div class="card mb-4 box-shadow price-card" id="four_hundred_btn">
+                                        <div class="card-header">
+                                            <h4 class="my-0 font-weight-normal">Своя машина</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <h1 class="card-title pricing-card-title">350₴ <small class="text-muted">/
+                                                час</small></h1>
+
+                                        </div>
+                                    </div>
+                                    <div class="card mb-4 box-shadow price-card" id="five_hundred_btn">
+                                        <div class="card-header">
+                                            <h4 class="my-0 font-weight-normal">Инструктора</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <h1 class="card-title pricing-card-title">500₴ <small class="text-muted">/
+                                                час</small></h1>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                                                <p class='bottom_text'>Выберите карточку, чтобы пройти дальше</p>
+
+                            </div>
+                            <div class="modal-footer footer-appointment">
+                <a type="button" class="btn btn-primary go_on_button" href="#carouselExampleIndicators" id="go_on_first" role="button"
+                   data-slide="next" disabled>Продолжить</a>
+            </div>
+                        </div>
+
+                        <div class="carousel-item" id="date_slide">
+                            <div class="carousel-inner mb-3">
+                                <div class="input-group date" id="datetimepicker1">
+                                    <input type="text" class="form-control" id="date_input"/>
+                                    <span class="input-group-addon">
+				<span class="glyphicon-calendar glyphicon"></span>
+			  </span>
+                                </div>
+                                                                                                <p class='mt-3 bottom_text'>Выберите дату, чтобы пройти дальше</p>
+
+                            </div>
+                            <div class="modal-footer footer-appointment">
+                <a type="button" class="btn btn-secondary" href="#carouselExampleIndicators" role="button"
+                   data-slide="prev">Назад</a>
+                <a type="button" class="btn btn-primary update_object" onclick="enable_date_button(); update_date(); sendDate(user_input['date'])" href="#carouselExampleIndicators" role="button"
+                   data-slide="next" id="go_on_second" disabled>Продолжить</a>
+            </div>
+                        </div>
+                        <div class="carousel-item" id="time_slide">
+                            <div class="carousel-inner mb-3">
+                                <button class="btn btn-primary time_button" type="submit">8:00</button>
+                                <button class="btn btn-primary time_button" type="submit">11:00</button>
+                                <button class="btn btn-primary time_button" type="submit">14:00</button>
+                                <button class="btn btn-primary time_button" type="submit">17:00</button>
+                                <button class="btn btn-primary time_button" type="submit">20:00</button>
+                            </div>
+                                                                                                                            <p class='bottom_text'>Выберите время, чтобы пройти дальше</p>
+
+                            <div class="modal-footer footer-appointment">
+                <a type="button" class="btn btn-secondary" href="#carouselExampleIndicators" role="button"
+                   data-slide="prev">Назад</a>
+                <a type="button" class="btn btn-primary" onclick="enable_time_button();" href="#carouselExampleIndicators" role="button"
+                   data-slide="next" id="go_on_third" disabled="">Продолжить</a>
+            </div>
+                        </div>
+                        <div class="carousel-item" id="user_slide">
+                            <div class="carousel-inner">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="user_name">Имя</label>
+                                        <input class="form-control" id="user_name"
+                                               aria-describedby="emailHelp" placeholder="Пожалуйста, введите имя">
+                                        <small id="emailHelp" class="form-text text-muted"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user_phone">Телефон</label>
+                                        <input class="form-control" id="user_phone"
+                                               placeholder="Пожалуйста, введите телефон">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer footer-appointment">
+                <a type="button" class="btn btn-secondary" href="#carouselExampleIndicators" role="button"
+                   data-slide="prev">Назад</a>
+                <a type="button" onclick="enable_data_button(); sendingData()" data-toggle="modal" data-target="#modal_appointment" class="btn btn-primary update_object" id="go_on_forth" role="button">Подтвердить</a>
+<!--<button class="close" title="Закрыть" onclick="document.getElementById('modal_about').style.display='none';" data-toggle="modal" data-target="#modal_appointment"></button>-->
+                                <!--
+<a type="button" onclick="sendingData(); document.getElementById('modal_appointment').style.display='none'" data-target="modal_appointment" class="btn btn-primary update_object close-appointment" id="go_on_forth" role="button"-->
+            </div>
+                        </div>
+                    </div>
+                    <!--  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
+                    <!--    <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+                    <!--    <span class="sr-only">Previous</span>-->
+                    <!--  </a>-->
+                    <!--  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
+                    <!--    <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+                    <!--    <span class="sr-only">Next</span>-->
+                    <!--  </a>-->
+                </div>
+
+
+            </div>
+<!--            <div class="modal-footer">-->
+<!--                <a type="button" class="btn btn-secondary" href="#carouselExampleIndicators" role="button"-->
+<!--                   data-slide="prev">Назад</a>-->
+<!--                <a type="button" class="btn btn-primary" href="#carouselExampleIndicators" id="sme_id" role="button"-->
+<!--                   data-slide="next">Продолжить</a>-->
+<!--                <a type="button" onclick="sendingData()" class="btn btn-primary" href="#carouselExampleIndicators" role="button"-->
+<!--                   data-slide="next">Закончить</a>-->
+<!--            </div>-->
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal_price" tabindex="-1" role="dialog" aria-labelledby="modal_price_title"
+     aria-hidden="true" style="display: none">
+    <div class="modal-dialog-price modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_price_title">Цены</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Своя машина</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">350₴ <small class="text-muted">/ час</small></h1>
+                            <button type="button" class="btn btn-lg btn-block btn-primary close_price" data-toggle="modal"
+                                    data-target="#modal_appointment">Записаться
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Инструктора</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">500₴ <small class="text-muted">/ час</small></h1>
+
+                            <button type="button" class="btn btn-lg btn-block btn-primary close_price" data-toggle="modal"
+                                    data-target="#modal_appointment">Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modal_farewell" tabindex="-1" role="dialog" aria-labelledby="modal_farewell_title"
+     aria-hidden="true" style="display: none">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="modal_farewell_title">Правила</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+            <div class="modal-body">
+                <p>Спасибо за заявку, я скоро с Вами свяжусь</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-dismiss="modal" >
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../../static/js/index.js"></script>
+
+</body>
+</html>
+
