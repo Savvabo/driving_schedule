@@ -53,12 +53,12 @@ def webhook():
 
 @app.before_first_request
 def before_first_request():
-    bot.remove_webhook()
+    #bot.remove_webhook()
 
     time.sleep(0.1)
 
     # Set webhook
-    bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
+    #bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
     app.logger.info('blyat')
     Thread(target=bot.polling).start()
     log_level = logging.INFO
