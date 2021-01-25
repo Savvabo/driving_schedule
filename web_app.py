@@ -53,6 +53,14 @@ def webhook():
 
 @app.before_first_request
 def before_first_request():
+    bot.remove_webhook()
+
+    time.sleep(0.1)
+
+    # Set webhook
+    bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
+    app.logger.info('blyat')
+    Thread(target=bot.polling).start()
     log_level = logging.INFO
 
     for handler in app.logger.handlers:
@@ -213,13 +221,6 @@ def get_times_by_date():
 
 
 if __name__ == '__main__':
-    bot.remove_webhook()
 
-    time.sleep(0.1)
-
-    # Set webhook
-    bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
-    app.logger.info('blyat')
-    Thread(target=bot.polling).start()
     app.run(host=WEBHOOK_LISTEN,
             port=WEBHOOK_PORT)
