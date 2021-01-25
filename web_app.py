@@ -124,6 +124,7 @@ def sort_excel():
 #     range = None
 
 def add_form_to_db(body):
+    app.logger.info('addformtodb')
     user_phone = body['phone']
     user_name = body['name']
     price = int(body['price'])
