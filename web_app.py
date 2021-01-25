@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort
 import datetime
 import telebot
 from sqlalchemy.orm import sessionmaker
@@ -17,9 +17,11 @@ from gspread import Cell
 from oauth2client.service_account import ServiceAccountCredentials
 import logging
 import os
+import time
 
+API_TOKEN = '1424148522:AAFjMIx2a0BXM9VOhhgEUCCilmkfWDxfu6k'
 
-bot = telebot.TeleBot('1424148522:AAFjMIx2a0BXM9VOhhgEUCCilmkfWDxfu6k')
+bot = telebot.TeleBot(API_TOKEN)
 app = Flask(__name__)
 
 scope = ['https://spreadsheets.google.com/feeds',
@@ -29,6 +31,21 @@ client = gspread.authorize(creds)
 
 init_db()
 
+WEBHOOK_HOST = '64.227.120.83'
+WEBHOOK_PORT = 80  # 443, 80, 88 or 8443 (port need to be 'open')
+WEBHOOK_URL_BASE = "http://%s:%s" % (WEBHOOK_HOST, WEBHOOK_PORT)
+WEBHOOK_URL_PATH = "/%s/" % (API_TOKEN)
+
+# Process webhook calls
+@app.route(WEBHOOK_URL_PATH, methods=['POST'])
+def webhook():
+    if request.headers.get('content-type') == 'application/json':
+        json_string = request.get_data().decode('utf-8')
+        update = telebot.types.Update.de_json(json_string)
+        bot.process_new_updates([update])
+        return ''
+    else:
+        abort(403)
 
 @app.before_first_request
 def before_first_request():
@@ -192,5 +209,11 @@ def get_times_by_date():
 
 
 if __name__ == '__main__':
+    bot.remove_webhook()
+
+    time.sleep(0.1)
+
+    # Set webhook
+    bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
     Thread(target=bot.polling).start()
     app.run(host='0.0.0.0')
