@@ -35,6 +35,7 @@ WEBHOOK_HOST = '64.227.120.83'
 WEBHOOK_PORT = 80  # 443, 80, 88 or 8443 (port need to be 'open')
 WEBHOOK_URL_BASE = "http://%s:%s" % (WEBHOOK_HOST, WEBHOOK_PORT)
 WEBHOOK_URL_PATH = "/%s/" % (API_TOKEN)
+WEBHOOK_LISTEN = '0.0.0.0'
 
 # Process webhook calls
 @app.route(WEBHOOK_URL_PATH, methods=['POST'])
@@ -218,5 +219,7 @@ if __name__ == '__main__':
 
     # Set webhook
     bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
+    app.logger.info('blyat')
     Thread(target=bot.polling).start()
-    app.run(host='0.0.0.0')
+    app.run(host=WEBHOOK_LISTEN,
+            port=WEBHOOK_PORT)
