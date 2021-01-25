@@ -39,8 +39,11 @@ WEBHOOK_URL_PATH = "/%s/" % (API_TOKEN)
 # Process webhook calls
 @app.route(WEBHOOK_URL_PATH, methods=['POST'])
 def webhook():
+    app.logger.info('webhook')
     if request.headers.get('content-type') == 'application/json':
         json_string = request.get_data().decode('utf-8')
+        app.logger.info(json_string)
+
         update = telebot.types.Update.de_json(json_string)
         bot.process_new_updates([update])
         return ''
