@@ -31,9 +31,10 @@ function enable_data_button() {
     let name_value = $('#user_name').val()
     let phone_value = $('#user_phone').val()
     document.getElementById('go_on_forth').disabled = !name_value && !phone_value
-    // if (document.getElementById('go_on_forth').disabled === !name_value && !phone_value) {
-    //     $('#modal_farewell').modal('show')
-    // }
+    if (!document.getElementById('go_on_forth').disabled) {
+        sendingData()
+        $('#modal_farewell').modal('show')
+     }
 }
 
 
@@ -103,7 +104,6 @@ function sendingData() {
         }
     };
     http.send(post_data)
-    $('#modal_farewell').modal('show')
     // });
 }
 

@@ -1,23 +1,16 @@
 from flask import Flask, render_template, request, abort
 import datetime
 import telebot
-from sqlalchemy.orm import sessionmaker
-from telebot import types
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-from format_message import format_message
-import sqlite3
 from database import init_db, db_session
 from models import User, Record
 from threading import Thread
-from sqlalchemy import *
-import json
 import gspread
 import pandas as pd
 from gspread import Cell
 from oauth2client.service_account import ServiceAccountCredentials
 import logging
 import os
-import time
 
 API_TOKEN = '1424148522:AAFjMIx2a0BXM9VOhhgEUCCilmkfWDxfu6k'
 
@@ -40,10 +33,8 @@ WEBHOOK_LISTEN = '0.0.0.0'
 # Process webhook calls
 @app.route(WEBHOOK_URL_PATH, methods=['POST'])
 def webhook():
-    app.logger.info('webhook')
     if request.headers.get('content-type') == 'application/json':
         json_string = request.get_data().decode('utf-8')
-        app.logger.info(json_string)
 
         update = telebot.types.Update.de_json(json_string)
         bot.process_new_updates([update])
@@ -53,13 +44,7 @@ def webhook():
 
 @app.before_first_request
 def before_first_request():
-    #bot.remove_webhook()
 
-    time.sleep(0.1)
-
-    # Set webhook
-    #bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
-    app.logger.info('blyat')
     Thread(target=bot.polling).start()
     log_level = logging.INFO
 
@@ -81,21 +66,6 @@ def before_first_request():
 def shutdown_db_session(exception=None):
     db_session.remove()
 
-
-# conn = sqlite3.connect('database.sqlite')
-# conn.executescript("""create table IF NOT EXISTS main
-# (
-#     user_phone TEXT
-#         constraint table_name_pk
-#             primary key,
-#     user_name  TEXT,
-#     price      int,
-#     date       int
-# );
-#
-# create unique index IF NOT EXISTS table_name_user_phone_uindex
-#     on main (user_phone);
-# """)
 
 
 @app.route('/')
@@ -141,19 +111,7 @@ def sort_excel():
     sheet.update_cells(cell_list)
 
 
-#     sheet.values_update(
-#     'Sheet1!B4',
-#     params={
-#         'valueInputOption': 'RAW'
-#     },
-#     body={
-#         'values':df.values.tolist()
-#     }
-# )
-#     range = None
-
 def add_form_to_db(body):
-    app.logger.info('addformtodb')
     user_phone = body['phone']
     user_name = body['name']
     price = int(body['price'])
@@ -182,7 +140,6 @@ def get_markup(record_id):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
-    app.logger.info('callback')
     update_record(call.data.split(':')[0], call.data.endswith('confirmed'))
 
 
