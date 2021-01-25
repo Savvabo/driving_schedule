@@ -166,7 +166,7 @@ def submit_form():
                                         name=body['name'],
                                         phone=body['phone'])
     # bot.send_message(334755342 -413309944, formatted_message, reply_markup=get_markup(record_id))
-    bot.send_message(334755342, formatted_message, reply_markup=get_markup(record_id))
+    bot.send_message(-413309944, formatted_message, reply_markup=get_markup(record_id))
     return '', 200
 
 
