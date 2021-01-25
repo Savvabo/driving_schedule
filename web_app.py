@@ -15,6 +15,9 @@ import gspread
 import pandas as pd
 from gspread import Cell
 from oauth2client.service_account import ServiceAccountCredentials
+import logging
+import os
+
 
 bot = telebot.TeleBot('1424148522:AAFjMIx2a0BXM9VOhhgEUCCilmkfWDxfu6k')
 app = Flask(__name__)
@@ -26,6 +29,24 @@ client = gspread.authorize(creds)
 
 init_db()
 
+
+@app.before_first_request
+def before_first_request():
+    log_level = logging.INFO
+
+    for handler in app.logger.handlers:
+        app.logger.removeHandler(handler)
+
+    root = os.path.dirname(os.path.abspath(__file__))
+    logdir = os.path.join(root, 'logs')
+    if not os.path.exists(logdir):
+        os.mkdir(logdir)
+    log_file = os.path.join(logdir, 'app.log')
+    handler = logging.FileHandler(log_file)
+    handler.setLevel(log_level)
+    app.logger.addHandler(handler)
+
+    app.logger.setLevel(log_level)
 
 @app.teardown_appcontext
 def shutdown_db_session(exception=None):
@@ -131,6 +152,7 @@ def get_markup(record_id):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
+    app.logger.info('callback')
     update_record(call.data.split(':')[0], call.data.endswith('confirmed'))
 
 
