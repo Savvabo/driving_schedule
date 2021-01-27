@@ -77,6 +77,8 @@ $(document).ready(function() {
   $("#user_phone").inputFilter(function(value) {
     return /^\d*$/.test(value);    // Allow digits only, using a RegExp
   });
+  $("#user_name").inputFilter(function(value) {
+  return /^[аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяЯіІїЇґҐєЄ]*$/i.test(value); });
 });
 
 
